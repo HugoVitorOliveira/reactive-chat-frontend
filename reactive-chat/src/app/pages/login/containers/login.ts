@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
+  standalone: true,
   selector: 'app-login',
   imports: [],
   templateUrl: './login.html',
-  styleUrl: './login.scss'
+  styleUrl: './login.scss',
 })
-export class Login {
-
-}
+export class Login {}
