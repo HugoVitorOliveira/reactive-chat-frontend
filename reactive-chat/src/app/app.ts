@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NgParticlesService, NgxParticlesModule } from '@tsparticles/angular';
-import { particlesConfig } from './shared/particles-config';
-import { Container } from '@tsparticles/engine';
+import { Engine } from '@tsparticles/engine';
 import { loadSlim } from '@tsparticles/slim';
+import { particlesOptions } from './shared/particles/particles-options';
 
 @Component({
   selector: 'app-root',
@@ -12,19 +12,17 @@ import { loadSlim } from '@tsparticles/slim';
   styleUrl: './app.scss',
 })
 export class App implements OnInit {
-  protected title = 'reactive-chat';
-  id = 'tsparticles';
-  options = particlesConfig;
+  readonly particlesOptions = particlesOptions;
 
-  constructor(private readonly ngParticlesService: NgParticlesService) {}
+  private particlesService = inject(NgParticlesService);
 
   ngOnInit(): void {
-    this.ngParticlesService.init(async (engine) => {
-      await loadSlim(engine);
-    });
+    this.initParticles();
   }
 
-  particlesLoaded(container: Container): void {
-    console.log(container);
+  private initParticles(): void {
+    this.particlesService.init(async (engine: Engine) => {
+      await loadSlim(engine);
+    });
   }
 }

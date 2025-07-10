@@ -5,40 +5,40 @@ import {
   RecursivePartial,
 } from '@tsparticles/engine';
 
-export const particlesConfig: RecursivePartial<IOptions> = {
+export const particlesOptions: RecursivePartial<IOptions> = {
   background: {
     color: {
-      value: '#0d47a1',
+      value: '#121212',
     },
   },
-  fpsLimit: 120,
-  interactivity: {
-    events: {
-      onClick: {
-        enable: true,
-        mode: 'push',
-      },
-      onHover: {
-        enable: true,
-        mode: 'repulse',
-      },
-    },
-    modes: {
-      push: {
-        quantity: 4,
-      },
-      repulse: {
-        distance: 200,
-        duration: 0.4,
-      },
-    },
-  },
+  fpsLimit: 240,
+  // interactivity: { //Efeitos de mouse
+  //   events: {
+  //     onClick: {
+  //       enable: true,
+  //       mode: 'push',
+  //     },
+  //     onHover: {
+  //       enable: true,
+  //       mode: 'repulse',
+  //     },
+  //   },
+  //   modes: {
+  //     push: {
+  //       quantity: 4,
+  //     },
+  //     repulse: {
+  //       distance: 200,
+  //       duration: 0.4,
+  //     },
+  //   },
+  // },
   particles: {
     color: {
-      value: '#ffffff',
+      value: '#e0e0e0',
     },
     links: {
-      color: '#ffffff',
+      color: '#e0e0e0',
       distance: 150,
       enable: true,
       opacity: 0.5,
@@ -58,7 +58,7 @@ export const particlesConfig: RecursivePartial<IOptions> = {
       density: {
         enable: true,
       },
-      value: 80,
+      value: 120,
     },
     opacity: {
       value: 0.5,
